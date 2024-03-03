@@ -1,5 +1,6 @@
 import prisma from "../../../utils/connect"
-import { getAuthSession } from "../auth/[...nextauth]/route"
+// import { getAuthSession } from "../auth/[...nextauth]/route"
+import getAuthSession from "../../../utils/auth"
 import { NextResponse } from "next/server"
 
 //make tweet - home page

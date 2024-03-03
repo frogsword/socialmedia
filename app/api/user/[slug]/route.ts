@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import prisma from "../../../../utils/connect"
-import { getAuthSession } from "../../auth/[...nextauth]/route"
+// import { getAuthSession } from "../../auth/[...nextauth]/route"
+import getAuthSession from "../../../../utils/auth"
 
 //find specific user
 export const GET = async(req, { params }) => {

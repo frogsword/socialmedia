@@ -1,4 +1,4 @@
-import { getAuthSession } from "./api/auth/[...nextauth]/route"
+import getAuthSession from "../utils/auth"
 import Tweet from "../ui/Tweet"
 import PostForm from "../ui/PostForm"
 import styles from "../styles/home.module.css"

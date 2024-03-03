@@ -3,7 +3,8 @@ import Tweet from "../../../ui/Tweet"
 import ProfileHeader from "../../../ui/ProfileHeader"
 import { Input, Popover, PopoverTrigger, PopoverContent, Button} from "@nextui-org/react";
 import { headers } from "next/headers"
-import { getAuthSession } from "../../api/auth/[...nextauth]/route"
+// import { getAuthSession } from "../../api/auth/[...nextauth]/route"
+import getAuthSession from "../../../utils/auth"
 import { redirect } from 'next/navigation'
 import styles from "../../../styles/profile.module.css"
 
