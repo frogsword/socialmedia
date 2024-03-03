@@ -1,0 +1,62 @@
+.tweetMain {
+    display: flex;
+    border: .5px solid gray;
+    padding: 10px;
+    gap: 5px;
+    font-size: 18px;
+}
+
+.tweetMain:hover {
+    background-color: #121212;
+    cursor: pointer;
+}
+
+.tweetContent {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.tweetTopRow {
+    display: flex;
+    justify-content: space-between;
+    min-width: 100%;
+}
+
+.tweetDate {
+    color: gray;
+    padding-left: 5px;
+}
+
+.tweetBottomRow {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    display: flex;
+    gap: 10%;
+}
+
+.like, .comment {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.imgContainer {
+    padding: 0px 5px;
+}
+
+.profileRouteElement {
+    z-index: 10;
+}
+
+.profileRouteElement:hover {
+    color: skyblue;
+    text-decoration: underline;
+}
+
+.tweetBody {
+    text-wrap: wrap;
+    word-break: break-all;
+}

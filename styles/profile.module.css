@@ -1,0 +1,44 @@
+.main {
+    margin: 0% 25%;
+    min-height: 100vh;
+    height: 100%;
+    border-right: .5px solid gray;
+    border-left: .5px solid gray;
+    padding-bottom: 50vh;
+}
+
+.profileHeader {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+    border-bottom: .5px solid gray;
+}
+
+.profileTopRow {
+    display: flex;
+    justify-content: space-between;
+}
+
+.profileMiddleRow {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    gap: 3em;
+}
+
+.profileBottomRow {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    gap: 3em;
+    flex-wrap: wrap;
+}
+
+.username {
+    font-size: 20px;
+}
+
+.date, .followInfoText {
+    color: gray;
+}
