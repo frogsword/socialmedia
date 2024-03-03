@@ -26,7 +26,7 @@ export default function ReplyForm(data: any) {
         setDisabled(true)
         setTweet("")
 
-        const res = await fetch(`http://localhost:3000/api/tweet/${id}`, {
+        const res = await fetch(`https://socialmedia-sigma-indol.vercel.app/api/tweet/${id}`, {
           body: JSON.stringify({
             body: userTweet,
             username: username

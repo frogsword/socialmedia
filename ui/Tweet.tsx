@@ -30,7 +30,7 @@ export default function Tweet(data: any) {
         setLiked(!liked)
         liked ? setLikeCount(tweet.likeCount -= 1) : setLikeCount(tweet.likeCount += 1)
         
-            await fetch(`http://localhost:3000/api/tweet/${tweet.id}`, {
+            await fetch(`https://socialmedia-sigma-indol.vercel.app/api/tweet/${tweet.id}`, {
                 method: 'PUT',
                 body: JSON.stringify(userLikedTweets)
             })
@@ -45,7 +45,7 @@ export default function Tweet(data: any) {
             return
         }
 
-        await fetch(`http://localhost:3000/api/tweet/${id}`, {
+        await fetch(`https://socialmedia-sigma-indol.vercel.app/api/tweet/${id}`, {
             cache: 'no-store',
             method: 'DELETE',
         })

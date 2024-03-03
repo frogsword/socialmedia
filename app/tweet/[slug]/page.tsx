@@ -6,7 +6,7 @@ import getAuthSession from "../../../utils/auth"
 import styles from "../../../styles/tweetPage.module.css"
 
 const getTweets = async(slug: any) => {
-  const res = await fetch(`http://localhost:3000/api/tweet/${slug}`, {
+  const res = await fetch(`https://socialmedia-sigma-indol.vercel.app/api/tweet/${slug}`, {
     cache: 'no-store'
   })
 
@@ -14,7 +14,7 @@ const getTweets = async(slug: any) => {
 }
 
 const getUserLikedTweets = async(slug: any) => {
-  const res = await fetch(`http://localhost:3000/api/user/${slug}`, {
+  const res = await fetch(`https://socialmedia-sigma-indol.vercel.app/api/user/${slug}`, {
     cache: 'no-store'
   })
 

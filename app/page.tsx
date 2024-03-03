@@ -4,7 +4,7 @@ import PostForm from "../ui/PostForm"
 import styles from "../styles/home.module.css"
 
 const getTweets = async() => {
-  const res = await fetch(`http://localhost:3000/api/tweet`, {
+  const res = await fetch(`https://socialmedia-sigma-indol.vercel.app/api/tweet`, {
     cache: 'no-store'
   })
 
@@ -12,7 +12,7 @@ const getTweets = async() => {
 }
 
 const getUserLikedTweets = async(slug: any) => {
-  const res = await fetch(`http://localhost:3000/api/user/${slug}`, {
+  const res = await fetch(`https://socialmedia-sigma-indol.vercel.app/api/user/${slug}`, {
     cache: 'no-store'
   })
 

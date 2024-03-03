@@ -50,7 +50,7 @@ export default function ProfileHeader(data: any) {
     }
       
     const updateFollowers = async(following: any, followers: any, slug: any) => {  
-        const res = await fetch(`http://localhost:3000/api/user/${slug}`, {
+        const res = await fetch(`https://socialmedia-sigma-indol.vercel.app/api/user/${slug}`, {
           body: JSON.stringify({
             following: following, 
             followers: followers,
@@ -73,7 +73,7 @@ export default function ProfileHeader(data: any) {
         const newUsername = input
         setInput("")
       
-        const res = await fetch(`http://localhost:3000/api/user/${session?.user?.id}`, {
+        const res = await fetch(`https://socialmedia-sigma-indol.vercel.app/api/user/${session?.user?.id}`, {
           body: JSON.stringify(newUsername),
           method: "POST",
         }) 

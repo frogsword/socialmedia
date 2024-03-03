@@ -4,7 +4,7 @@ import getAuthSession from "../../../utils/auth"
 import styles from "../../../styles/profile.module.css"
 
 const getProfile = async(slug: any) => {
-    const res = await fetch(`http://localhost:3000/api/user/${slug}`, {
+    const res = await fetch(`https://socialmedia-sigma-indol.vercel.app/api/user/${slug}`, {
         cache: "no-store"
     })
 
@@ -12,7 +12,7 @@ const getProfile = async(slug: any) => {
 }
 
 const getTweets = async(slug: any) => {
-  const res = await fetch(`http://localhost:3000/api/user/${slug}/tweets`, {
+  const res = await fetch(`https://socialmedia-sigma-indol.vercel.app/api/user/${slug}/tweets`, {
     cache: 'no-store'
   })
 
@@ -20,7 +20,7 @@ const getTweets = async(slug: any) => {
 }
 
 const getUserLikedTweets = async(slug: any) => {
-  const res = await fetch(`http://localhost:3000/api/user/${slug}`, {
+  const res = await fetch(`https://socialmedia-sigma-indol.vercel.app/api/user/${slug}`, {
     cache: 'no-store'
   })
 
