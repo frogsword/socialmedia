@@ -33,7 +33,7 @@ const getUserLikedTweets = async(slug) => {
   return response
 }
 
-export default async function Profile({ params }) {
+export default async function Profile({ params }: any) {
     const { slug } = params
     const session = await getAuthSession()
     const profile = await getProfile(slug)
