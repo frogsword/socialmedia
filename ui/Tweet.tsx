@@ -12,8 +12,8 @@ import styles from "../styles/tweet.module.css"
 
 export default function Tweet(data: any) {
     const { data: session, status } = useSession()
-    let tweet = data.tweet
-    let likedTweets = data.likedTweets
+    let tweet = data?.tweet
+    let likedTweets = data?.likedTweets
     const [likeCount, setLikeCount] = useState(tweet.likeCount)
     const [liked, setLiked] = useState(likedTweets.includes(tweet.id))
     const [userLikedTweets, setUserLikedTweets] = useState(likedTweets)
@@ -40,7 +40,7 @@ export default function Tweet(data: any) {
         setDisabled(false)
     }
 
-    const deleteTweet = async(id) => {
+    const deleteTweet = async(id: any) => {
         if (!session) {
             return
         }
@@ -76,12 +76,12 @@ export default function Tweet(data: any) {
 
                 <div className={styles.tweetTopRow}>
                     <div>
-                        <b className={styles.profileRouteElement} onClick={() => router.replace(`/profile/${tweet.userId}`)}>{tweet.userName}</b>   
+                        <b className={styles.profileRouteElement} onClick={() => router.replace(`/profile/${tweet?.userId}`)}>{tweet?.userName}</b>   
                         <span className={styles.tweetDate}> {newTime} · {newDate}</span>
                     </div>
 
                     <div>
-                        {session?.user.id === tweet.userId && (
+                        {session?.user?.id === tweet?.userId && (
                         <Dropdown>
                             <DropdownTrigger>
                                 <Button isIconOnly 
@@ -104,7 +104,7 @@ export default function Tweet(data: any) {
                 </div>
 
                 <div className={styles.tweetBody}>
-                    {tweet.body}
+                    {tweet?.body}
                 </div>
                 
                 <div className={styles.tweetBottomRow}>
@@ -119,19 +119,19 @@ export default function Tweet(data: any) {
                                     <Heart />
                                 )}
                             </Button>
-                            <div>{tweet.likeCount}</div>
+                            <div>{tweet?.likeCount}</div>
                         </div>
                     )}
                     {(!session) && (
                         <div className={styles.like}> 
                             <Heart /> 
-                            {tweet.likeCount}
+                            {tweet?.likeCount}
                         </div>
                     )}
       
                     <div className={styles.comment}>
                         <Comment />
-                        <div>{tweet.replyId}</div>
+                        <div>{tweet?.replyId}</div>
                     </div>
                 </div>
 

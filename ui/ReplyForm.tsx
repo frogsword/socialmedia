@@ -10,8 +10,8 @@ import styles from "../styles/home.module.css"
 export default function ReplyForm(data: any) {
     const session = useSession()
     const router = useRouter()
-    const username = data.username
-    const id = data.parentTweetId
+    const username = data?.username
+    const id = data?.parentTweetId
 
     const [tweet, setTweet] = useState("")
     const [disabled, setDisabled] = useState(false)

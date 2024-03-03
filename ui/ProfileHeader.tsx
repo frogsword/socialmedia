@@ -34,7 +34,7 @@ export default function ProfileHeader(data: any) {
 
         setUserIsFollowing(true)
         setFollowerCount(profileFollowerCount += 1)
-        updateFollowers(following, followers, session?.user.id)
+        updateFollowers(following, followers, session?.user?.id)
     }
       
     const handleUnfollowClick = () => {
@@ -46,7 +46,7 @@ export default function ProfileHeader(data: any) {
 
         setUserIsFollowing(false)
         setFollowerCount(profileFollowerCount -= 1)
-        updateFollowers(following, followers, session?.user.id)
+        updateFollowers(following, followers, session?.user?.id)
     }
       
     const updateFollowers = async(following: any, followers: any, slug: any) => {  
@@ -73,7 +73,7 @@ export default function ProfileHeader(data: any) {
         const newUsername = input
         setInput("")
       
-        const res = await fetch(`http://localhost:3000/api/user/${session.user.id}`, {
+        const res = await fetch(`http://localhost:3000/api/user/${session?.user?.id}`, {
           body: JSON.stringify(newUsername),
           method: "POST",
         }) 
