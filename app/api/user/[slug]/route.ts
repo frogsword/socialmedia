@@ -4,7 +4,7 @@ import prisma from "../../../../utils/connect"
 import getAuthSession from "../../../../utils/auth"
 
 //find specific user
-export const GET = async(req, { params }) => {
+export const GET = async(req: Request, { params }) => {
     const { slug } = params
 
     try {
@@ -22,7 +22,7 @@ export const GET = async(req, { params }) => {
 }
 
 //update username
-export const POST = async(req, { params }) => {
+export const POST = async(req: Request, { params }) => {
     const { slug } = params
     const session = await getAuthSession()
     const newUsername = await req.json()
@@ -57,7 +57,7 @@ export const POST = async(req, { params }) => {
 }
 
 //update followers
-export const PUT = async(req, { params }) => {
+export const PUT = async(req: Request, { params }) => {
     const { slug } = params
     const session = await getAuthSession()
     const request = await req.json()

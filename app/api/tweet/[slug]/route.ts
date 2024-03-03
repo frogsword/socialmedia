@@ -4,7 +4,7 @@ import getAuthSession from "../../../../utils/auth"
 import { NextResponse } from "next/server"
 
 //get specific tweet - tweet page
-export const GET = async(req, { params }) => {
+export const GET = async(req: Request, { params }) => {
     const { slug } = params
 
         try {
@@ -48,7 +48,7 @@ export const GET = async(req, { params }) => {
 }
 
 //delete tweet
-export const DELETE = async(req, { params }) => {
+export const DELETE = async(req: Request, { params }) => {
     const { slug } = params
 
     const session = await getAuthSession()
@@ -82,7 +82,7 @@ export const DELETE = async(req, { params }) => {
 }
 
 //make reply to tweet
-export const POST = async(req, { params }) => {
+export const POST = async(req: Request, { params }) => {
     const { slug } = params
     const request = await req.json()
     const session = await getAuthSession()
@@ -143,7 +143,7 @@ export const POST = async(req, { params }) => {
 }
 
 //update likes
-export const PUT = async(req, { params }) => {
+export const PUT = async(req: Request, { params }) => {
     const { slug } = params
     const session = await getAuthSession()
     let likedTweets = await req.json()
