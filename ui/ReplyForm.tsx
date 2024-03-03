@@ -1,6 +1,7 @@
 'use client'
 
-import { Textarea, Button } from "@nextui-org/react";
+import { Textarea } from "@nextui-org/input";
+import { Button } from "@nextui-org/button";
 import { useSession } from "next-auth/react";
 import { FormEvent } from "react";
 import { useState } from "react";

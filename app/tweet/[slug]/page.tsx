@@ -1,7 +1,5 @@
 import Tweet from "../../../ui/Tweet"
 import ReplyForm from "../../../ui/ReplyForm"
-import {Button, Textarea} from "@nextui-org/react";
-// import { getAuthSession } from "../../api/auth/[...nextauth]/route"
 import getAuthSession from "../../../utils/auth"
 import styles from "../../../styles/tweetPage.module.css"
 

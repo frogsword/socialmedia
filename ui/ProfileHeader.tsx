@@ -1,6 +1,8 @@
 'use client'
 
-import { Input, Popover, PopoverTrigger, PopoverContent, Button} from "@nextui-org/react";
+import { Popover, PopoverTrigger, PopoverContent} from "@nextui-org/popover";
+import { Button } from "@nextui-org/button";
+import { Input } from "@nextui-org/input";
 import Image from "next/image"
 import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react"
