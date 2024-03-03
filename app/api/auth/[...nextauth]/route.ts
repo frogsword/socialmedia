@@ -35,6 +35,6 @@ import { getServerSession } from "next-auth"
 // }
 
 const handler = NextAuth(authOptions);
-const getAuthSession = () => getServerSession(authOptions)
+// const getAuthSession = () => getServerSession(authOptions)
 
-export { handler as GET, handler as POST, handler as DELETE, handler as PUT, getAuthSession }
+export { handler as GET, handler as POST, handler as DELETE, handler as PUT }
