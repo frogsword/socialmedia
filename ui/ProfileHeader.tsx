@@ -5,7 +5,7 @@ import { Button } from "@nextui-org/button";
 import { Input } from "@nextui-org/input";
 import Image from "next/image"
 import { useSession } from "next-auth/react";
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import styles from "../styles/profile.module.css"
 import { FormEvent } from "react";
 

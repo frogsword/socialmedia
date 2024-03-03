@@ -1,7 +1,8 @@
 'use client'
 
-import {Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Button, Link, Textarea} from "@nextui-org/react";
-import {useState, useEffect} from "react"
+import {  Dropdown,  DropdownTrigger,  DropdownMenu,  DropdownSection,  DropdownItem} from "@nextui-org/dropdown";
+import { Button } from "@nextui-org/button"
+import {useState} from "react"
 import { Heart } from "./assets/heart"
 import { Comment } from "./assets/comment"
 import { HeartFill } from "./assets/heart-fill"
