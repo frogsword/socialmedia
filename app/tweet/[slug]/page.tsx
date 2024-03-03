@@ -39,8 +39,8 @@ export default async function Profile({ params }: any) {
           {parents.map((tweet: any) => {
             if (!tweet.isDeleted) {
                 return (
-                  <div>
-                    <Tweet key={tweet.id} tweet={tweet} likedTweets={likedTweets} />
+                  <div key={tweet.id}>
+                    <Tweet tweet={tweet} likedTweets={likedTweets} />
                   </div>
                 )
             }
