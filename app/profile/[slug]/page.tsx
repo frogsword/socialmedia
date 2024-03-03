@@ -1,14 +1,9 @@
-import { Params } from "next/dist/shared/lib/router/utils/route-matcher";
 import Tweet from "../../../ui/Tweet"
 import ProfileHeader from "../../../ui/ProfileHeader"
-import { Input, Popover, PopoverTrigger, PopoverContent, Button} from "@nextui-org/react";
-import { headers } from "next/headers"
-// import { getAuthSession } from "../../api/auth/[...nextauth]/route"
 import getAuthSession from "../../../utils/auth"
-import { redirect } from 'next/navigation'
 import styles from "../../../styles/profile.module.css"
 
-const getProfile = async(slug) => {
+const getProfile = async(slug: any) => {
     const res = await fetch(`http://localhost:3000/api/user/${slug}`, {
         cache: "no-store"
     })
@@ -16,7 +11,7 @@ const getProfile = async(slug) => {
     return res.json()
 }
 
-const getTweets = async(slug) => {
+const getTweets = async(slug: any) => {
   const res = await fetch(`http://localhost:3000/api/user/${slug}/tweets`, {
     cache: 'no-store'
   })
@@ -24,7 +19,7 @@ const getTweets = async(slug) => {
   return res.json()
 }
 
-const getUserLikedTweets = async(slug) => {
+const getUserLikedTweets = async(slug: any) => {
   const res = await fetch(`http://localhost:3000/api/user/${slug}`, {
     cache: 'no-store'
   })
@@ -38,7 +33,7 @@ export default async function Profile({ params }: any) {
     const session = await getAuthSession()
     const profile = await getProfile(slug)
     const tweets = await getTweets(slug)
-    const userProfile = await getUserLikedTweets(session?.user.id)
+    const userProfile = await getUserLikedTweets(session?.user?.id)
     const likedTweets = userProfile?.likedTweets || []
     const userIsFollowing = userProfile?.following.includes(profile.id)
 
@@ -47,7 +42,7 @@ export default async function Profile({ params }: any) {
         <ProfileHeader profile={profile} user={userProfile} userIsFollowing={userIsFollowing} />
 
         <div className="user-tweets">
-        {tweets.map((tweet) => {
+        {tweets.map((tweet: any) => {
             if (!tweet.isDeleted) {
                 return (
                     <Tweet key={tweet.id} tweet={tweet} likedTweets={likedTweets} />

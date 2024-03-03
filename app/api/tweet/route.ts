@@ -1,10 +1,9 @@
 import prisma from "../../../utils/connect"
-// import { getAuthSession } from "../auth/[...nextauth]/route"
 import getAuthSession from "../../../utils/auth"
 import { NextResponse } from "next/server"
 
 //make tweet - home page
-export const POST = async(req) => {
+export const POST = async(req: Request) => {
     const session = await getAuthSession()
     const request = await req.json()
 
@@ -21,15 +20,15 @@ export const POST = async(req) => {
         const tweet = await prisma.tweet.create({
             data: {
                 body: tweetBody, 
-                userId: session.user.id,
-                userPfp: session.user.image,
-                userName: username || session.user.name,
+                userId: session?.user?.id,
+                userPfp: session?.user?.image,
+                userName: username || session?.user?.name,
                 parentId: []
             }
         })
 
         return new NextResponse(
-            JSON.stringify(tweet.id, {status: 200})
+            JSON.stringify(tweet.id)
         )
     }
     catch (err) {
@@ -54,7 +53,7 @@ export const GET = async() => {
         })
         
         return new NextResponse(
-            JSON.stringify(userTweets, { status: 200 })
+            JSON.stringify(userTweets)
         )
     } 
     catch(err) {}

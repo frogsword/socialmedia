@@ -1,5 +1,4 @@
 import prisma from "../../../../utils/connect"
-// import { getAuthSession } from "../../auth/[...nextauth]/route"
 import getAuthSession from "../../../../utils/auth"
 import { NextResponse } from "next/server"
 
@@ -17,7 +16,7 @@ export const GET = async(req: Request, { params }: any) => {
             const parents = await prisma.tweet.findMany({
                 where: {
                     id: {
-                        in: tweet.parentId
+                        in: tweet?.parentId
                     }
                 }
             })
@@ -25,14 +24,14 @@ export const GET = async(req: Request, { params }: any) => {
             const replies = await prisma.tweet.findMany({
                 where: {
                     parentId: {
-                        has: tweet.id
+                        has: tweet?.id
                     }
                 },
                 orderBy: {
                     createdAt: 'desc'
                 }
             })
-            let children = []
+            let children: any = []
             if (replies.length > 0) {
                 replies.forEach((e) => {
                     if (e.parentId[0] == slug) {
@@ -106,15 +105,15 @@ export const POST = async(req: Request, { params }: any) => {
                 parentId: true
             }
         })
-        const parentTweetList = parentTweet.parentId
+        const parentTweetList = parentTweet?.parentId || []
 
         //make tweet
         const tweet = await prisma.tweet.create({
             data: {
                 body: tweetBody, 
-                userId: session.user.id,
-                userPfp: session.user.image,
-                userName: username || session.user.name,
+                userId: session?.user?.id,
+                userPfp: session?.user?.image,
+                userName: username || session?.user?.name,
                 parentId: [slug, ...parentTweetList]
             }
         })
@@ -170,7 +169,7 @@ export const PUT = async(req: Request, { params }: any) => {
     
             const user = await prisma.user.update({
                 where: {
-                    id: session?.user.id
+                    id: session?.user?.id
                 },
                 data: {
                     likedTweets: {
@@ -180,7 +179,7 @@ export const PUT = async(req: Request, { params }: any) => {
             })
     
             return new NextResponse(
-                JSON.stringify(user.likedTweets, { status: 200 })
+                JSON.stringify(user.likedTweets)
             )
         }
         catch(err) {
@@ -209,7 +208,7 @@ export const PUT = async(req: Request, { params }: any) => {
     
             const user = await prisma.user.update({
                 where: {
-                    id: session?.user.id
+                    id: session?.user?.id
                 },
                 data: {
                     likedTweets: {
@@ -219,12 +218,12 @@ export const PUT = async(req: Request, { params }: any) => {
             })
     
             return new NextResponse(
-                JSON.stringify(user.likedTweets, { status: 200 })
+                JSON.stringify(user.likedTweets)
             )
         }
         catch(err) {
             return new NextResponse(
-                JSON.stringify(user.likedTweets, { status: 500 })
+                JSON.stringify({status: 500})
             )
         }
     }

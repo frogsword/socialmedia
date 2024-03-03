@@ -5,7 +5,7 @@ import {Button, Textarea} from "@nextui-org/react";
 import getAuthSession from "../../../utils/auth"
 import styles from "../../../styles/tweetPage.module.css"
 
-const getTweets = async(slug) => {
+const getTweets = async(slug: any) => {
   const res = await fetch(`http://localhost:3000/api/tweet/${slug}`, {
     cache: 'no-store'
   })
@@ -13,7 +13,7 @@ const getTweets = async(slug) => {
   return res.json()
 }
 
-const getUserLikedTweets = async(slug) => {
+const getUserLikedTweets = async(slug: any) => {
   const res = await fetch(`http://localhost:3000/api/user/${slug}`, {
     cache: 'no-store'
   })
@@ -29,14 +29,14 @@ export default async function Profile({ params }: any) {
     const parents = tweets.parents
     const tweet = tweets.tweet
     const children = tweets.children
-    const userProfile = await getUserLikedTweets(session?.user.id)
+    const userProfile = await getUserLikedTweets(session?.user?.id)
     const likedTweets = userProfile?.likedTweets || []
 
     return (
       <main className={styles.main}>
 
         <div className={styles.parentTweets}>
-          {parents.map((tweet) => {
+          {parents.map((tweet: any) => {
             if (!tweet.isDeleted) {
                 return (
                   <div>
@@ -56,7 +56,7 @@ export default async function Profile({ params }: any) {
         )}
 
         <div className={styles.replies}>
-        {children.map((tweet) => {
+        {children.map((tweet: any) => {
             if (!tweet.isDeleted) {
                 return (
                     <Tweet key={tweet.id} tweet={tweet} likedTweets={likedTweets} />

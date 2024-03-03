@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server";
 import prisma from "../../../../utils/connect"
-// import { getAuthSession } from "../../auth/[...nextauth]/route"
 import getAuthSession from "../../../../utils/auth"
 
 //find specific user
@@ -15,7 +14,7 @@ export const GET = async(req: Request, { params }: any) => {
         })
         
         return new NextResponse(
-            JSON.stringify(user, { status: 200 })
+            JSON.stringify(user)
         )
     } 
     catch(err) {}
@@ -86,7 +85,7 @@ export const PUT = async(req: Request, { params }: any) => {
     //update following[] for follower account
     await prisma.user.update({
         where: {
-            id: session.user.id
+            id: session?.user?.id
         },
         data: {
             following: {

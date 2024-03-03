@@ -8,7 +8,7 @@ import GoogleLogo from "./assets/google-mark.png"
 import Image from "next/image"
 import styles from "../styles/navbar.module.css"
 
-export default function Nav({userId}) {  
+export default function Nav() {  
   const { data: session, status } = useSession()
   const pathname = usePathname()
   const profIsCurrPage = pathname.includes("/profile/")
@@ -29,7 +29,7 @@ export default function Nav({userId}) {
 
           <NavbarItem isActive={profIsCurrPage}>
             {session && (
-              <Link href={`/profile/${session?.user.id}` || "/"} aria-current="page" color={profIsCurrPage ? "primary" : "foreground"}>
+              <Link href={`/profile/${session?.user?.id}` || "/"} aria-current="page" color={profIsCurrPage ? "primary" : "foreground"}>
                 Profile
               </Link>
             )}
@@ -41,10 +41,10 @@ export default function Nav({userId}) {
           <DropdownTrigger>
             <Image
               className="h-8 w-8 rounded-full"
-              src={session?.user.image || 'https://avatar.vercel.sh/leerob'}
+              src={session?.user?.image || 'https://avatar.vercel.sh/leerob'}
               height={32}
               width={32}
-              alt={`${session?.user.name || 'placeholder'} avatar`}
+              alt={`${session?.user?.name || 'placeholder'} avatar`}
             />
           </DropdownTrigger>
 

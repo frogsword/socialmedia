@@ -11,7 +11,7 @@ const getTweets = async() => {
   return res.json()
 }
 
-const getUserLikedTweets = async(slug) => {
+const getUserLikedTweets = async(slug: any) => {
   const res = await fetch(`http://localhost:3000/api/user/${slug}`, {
     cache: 'no-store'
   })
@@ -23,7 +23,7 @@ const getUserLikedTweets = async(slug) => {
 export default async function Home() {
   const session = await getAuthSession()
   const tweets = await getTweets()
-  const userProfile = await getUserLikedTweets(session?.user.id)
+  const userProfile = await getUserLikedTweets(session?.user?.id)
   const likedTweets = userProfile?.likedTweets || []
 
   
@@ -35,7 +35,7 @@ export default async function Home() {
 
       {/* <Timeline /> */}
       <div className="user-tweets">
-        {tweets.map((tweet) => {
+        {tweets.map((tweet: any) => {
             if (!tweet.isDeleted) {
                 return (
                     <Tweet key={tweet.id} tweet={tweet} likedTweets={likedTweets} />

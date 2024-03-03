@@ -18,7 +18,7 @@ export const GET = async(req: Request, { params }: any) => {
         })
         
         return new NextResponse(
-            JSON.stringify(tweets, { status: 200 })
+            JSON.stringify(tweets)
         )
     } 
     catch(err) {}
