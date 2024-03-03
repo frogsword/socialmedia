@@ -7,7 +7,7 @@ import { useState } from "react";
 import { useRouter } from 'next/navigation'
 import styles from "../styles/home.module.css"
 
-export default function PostForm(data) {
+export default function PostForm(data: any) {
     const session = useSession()
     const router = useRouter()
     const username = data.username

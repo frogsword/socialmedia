@@ -10,7 +10,7 @@ import { useSession } from "next-auth/react";
 import { useRouter } from 'next/navigation'
 import styles from "../styles/tweet.module.css"
 
-export default function Tweet(data) {
+export default function Tweet(data: any) {
     const { data: session, status } = useSession()
     let tweet = data.tweet
     let likedTweets = data.likedTweets

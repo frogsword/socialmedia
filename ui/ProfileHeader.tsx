@@ -7,7 +7,7 @@ import { useEffect, useState } from "react"
 import styles from "../styles/profile.module.css"
 import { FormEvent } from "react";
 
-export default function ProfileHeader(data) {
+export default function ProfileHeader(data: any) {
     const { data: session, status } = useSession()
     const profile = data.profile
     const userProfile = data.user
@@ -49,7 +49,7 @@ export default function ProfileHeader(data) {
         updateFollowers(following, followers, session?.user.id)
     }
       
-    const updateFollowers = async(following, followers, slug) => {  
+    const updateFollowers = async(following: any, followers: any, slug: any) => {  
         const res = await fetch(`http://localhost:3000/api/user/${slug}`, {
           body: JSON.stringify({
             following: following, 
